@@ -21,19 +21,7 @@ import os
 os.environ['PYTHONHASHSEED'] = '0'
 
 from hyperparameters import *
-"""
-import numpy as np
-np.random.seed(SEED)
-import tensorflow as tf
-tf.set_random_seed(SEED)
-import random
-random.seed(SEED)
-session_conf = tf.ConfigProto(intra_op_parallelism_threads=1, inter_op_parallelism_threads=1)
-session_conf.gpu_options.allow_growth = True
-from keras import backend as K
-sess = tf.Session(graph=tf.get_default_graph(), config=session_conf)
-K.set_session(sess)
-"""
+
 from environment_atari import ALEEnvironment
 from hybrid_rl_il_agent_atari import Agent
 from hybrid_model_atari import Hdqn
@@ -251,10 +239,6 @@ def main():
                 
                 # Update data for visualization
                 externalRewardMonitor += externalRewards
-
-            # Store meta controller's experience
-            #exp = MetaExperience(stateLastGoal, goal, totalExternalRewards, nextState, env.isTerminal())
-            #agent.store(exp, meta=True)
             
             # Update goal
             if episodeSteps > maxStepsPerEpisode:
@@ -268,10 +252,7 @@ def main():
                 if agent_list[goal].randomPlay:
                     agent_list[goal].randomPlay = False
                     #option_t[goal] = 0 ## Reset option counter 
-                #if goal == 1:
-                #    for i in range(20):
-                #        env.act(actionMap[0]) # take a bunch of no ops, probably dont need this?
-                episodeSteps = 0 ## reset episode steps to give new goal all 1000 steps
+                episodeSteps = 0 ## reset episode steps to give new goal all 500 steps
                 
                 decisionState = env.getStackedState()
                 
@@ -279,18 +260,18 @@ def main():
                 #print "Next predicted goal is:", goal
                 print('Next predicted subgoal is: ' + goalExplain[goal])
                 
-                #goal = goal+1
+                #goal = goal+1 ## alternatively, try setting goal to the ground truth goal
                 true_goal = true_goal + 1
 
                 #goal = goal +1
-                if true_goal <4:
+                if true_goal <nb_Option:
                     meta_count +=1
                     expert_goal = np.zeros((1,nb_Option))
                     expert_goal[0, true_goal] = 1.0
                     meta_labels.append((decisionState, expert_goal)) # append, but do not collect yet 
 
                 # get key
-                if true_goal == 4:
+                if true_goal == nb_Option:
                     break
                 
                 if goal!= true_goal:
@@ -311,7 +292,7 @@ def main():
         
         stepCount = sum(option_t)
         if stepCount > 10000: ## Start plotting after certain number of steps
-            for subgoal in range(4):
+            for subgoal in range(nb_Option):
                 visualizer.add_entry(option_t[subgoal], "trailing success ratio for goal "+str(subgoal), subgoal_trailing_performance[subgoal]) 
             visualizer.add_entry(stepCount, "average Q values", np.mean(avgQ_list))
             visualizer.add_entry(stepCount, "training loss", np.mean(loss_list))
