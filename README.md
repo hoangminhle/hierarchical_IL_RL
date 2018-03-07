@@ -1,5 +1,5 @@
 # hierarchical_IL_RL
-Code for our paper "Hierarchical Imitation and Reinforcement Learning"
+Code for our paper ["Hierarchical Imitation and Reinforcement Learning"](https://arxiv.org/abs/1803.00590)
 
 Here you can find the implementation of Hierarchical DAgger, Hierarchical Behavior Cloning for the Maze Domain and Hybrid Imitation-Reinforcement Learning algorithms for the Atari game Montezuma's Revenge
 
