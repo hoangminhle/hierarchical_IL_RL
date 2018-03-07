@@ -258,7 +258,7 @@ def main():
                 
                 goal = metacontroller.sample(metacontroller.predict(decisionState))
                 #print "Next predicted goal is:", goal
-                print('Next predicted subgoal is: ' + goalExplain[goal])
+                #print('Next predicted subgoal is: ' + goalExplain[goal])
                 
                 #goal = goal+1 ## alternatively, try setting goal to the ground truth goal
                 true_goal = true_goal + 1
