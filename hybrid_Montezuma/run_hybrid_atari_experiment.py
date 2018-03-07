@@ -202,7 +202,7 @@ def main():
                 else:
                     if not kickoff_lowlevel_training[goal]:
                         for exp in random_experience[goal]:
-                            agent_list[goal].store(exp, meta=False)
+                            agent_list[goal].store(exp)
                             option_t[goal] += 1
                             option_training_counter[goal] += 1
                         print "Finally, the number of stuff in random_experience is", len(random_experience[goal])
@@ -217,7 +217,7 @@ def main():
                     else:
                         if not option_learned[goal]:
                             exp = ActorExperience(state, goal, action, intrinsicRewards, nextState, env.isTerminal())
-                            agent_list[goal].store(exp, meta=False)
+                            agent_list[goal].store(exp)
                             option_t[goal] += 1
                             option_training_counter[goal] += 1
                 
@@ -227,7 +227,7 @@ def main():
                         print('start training (random walk ends) for subgoal '+str(goal))
 
                     if (option_t[goal] % agent_list[goal].trainFreq == 0 and option_training_counter[goal]>0 and (not option_learned[goal])):
-                        loss, avgQ, avgTDError = agent_list[goal].update(option_t[goal], meta=False)
+                        loss, avgQ, avgTDError = agent_list[goal].update(option_t[goal])
                         loss_list.append(loss)
                         avgQ_list.append(avgQ)
                         tdError_list.append(avgTDError)
@@ -342,7 +342,6 @@ def main():
         
         if (not annealComplete):
             # Annealing 
-            agent.annealMetaEpsilon(stepCount)
             for subgoal in range(4):
                 agent_list[subgoal].annealControllerEpsilon(option_t[subgoal], option_learned[subgoal])
     if not option_learned:
