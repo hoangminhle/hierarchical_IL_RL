@@ -13,6 +13,7 @@ else
     echo 'package not yet installed'
     pip install keras==2.1.2
     pip install h5py
+    pip install opencv-python
 fi
 
 python run_hybrid_atari_experiment.py
