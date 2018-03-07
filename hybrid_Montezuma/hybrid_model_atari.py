@@ -118,7 +118,8 @@ class Hdqn:
 
     def loadWeight(self, subgoal):
         #path = 'weight/'
-        self.controllerNet.load_weights('standardized_models/policy_subgoal_' + str(subgoal) + '.h5')
+        #self.controllerNet.load_weights('standardized_models/policy_subgoal_' + str(subgoal) + '.h5')
+        self.controllerNet.load_weights(recordFolder+'/policy_subgoal_' + str(subgoal) + '.h5')
         self.controllerNet.reset_states()
         #self.controllerNet.load_weights('netSubgoal_' + str(subgoal) + '.h5')
         #self.targetControllerNet.load_weights('netSubgoal_' + str(subgoal) + '.h5')
