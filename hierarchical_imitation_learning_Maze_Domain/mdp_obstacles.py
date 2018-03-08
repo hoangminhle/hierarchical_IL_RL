@@ -1,3 +1,8 @@
+# 
+# Script from implementation of Russell And Norvig's "Artificial Intelligence - A Modern Approach"
+# https://github.com/aimacode/aima-python
+# 
+# ===================================================================================================================
 
 """Markov Decision Processes (Chapter 17)
 
