@@ -320,9 +320,9 @@ def main():
                 if subgoal_trailing_performance[subgoal] > STOP_TRAINING_THRESHOLD:
                     if not option_learned[subgoal]:
                         option_learned[subgoal] = True
-                        hdqn_list[subgoal].saveWeight(subgoal)
-                        agent_list[subgoal].clear_memory(subgoal)
-                        hdqn_list[subgoal].clear_memory()
+                        #hdqn_list[subgoal].saveWeight(subgoal)
+                        #agent_list[subgoal].clear_memory(subgoal)
+                        #hdqn_list[subgoal].clear_memory()
                         print "Training completed after for subgoal", subgoal, "Model saved"
                         if subgoal == (nb_Option-1):
                             training_completed = True ## Stop training, all done
