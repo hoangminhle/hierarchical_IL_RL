@@ -7,6 +7,6 @@ Requires Tensorflow and Keras (the experiments were run on Tensorflow version 1.
 
 ----
 #### Sample result of Hybrid Imitation - Q Learning on Montezuma's Revenge first room ####
-<img src="hybrid_Montezuma/summary_results/atari.gif" width = "320" height = "420">
+<img src="hybrid_Montezuma/summary_results/atari.gif" width = "240" height = "315">
 
 
