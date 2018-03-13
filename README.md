@@ -5,8 +5,8 @@ Here you can find the implementation of Hierarchical DAgger, Hierarchical Behavi
 
 Requires Tensorflow and Keras (the experiments were run on Tensorflow version 1.3.0 and Keras version 2.1.2. Note that I used Cuda version 8.0.61 and cuDNN 6.0.21)
 
-
+----
 #### Sample result of Hybrid Imitation - Q Learning on Montezuma's Revenge first room ####
-![Atari result](atari.gif)
+![Atari result](hybrid_Montezuma/summary_results/atari.gif)
 
 
