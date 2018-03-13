@@ -8,6 +8,10 @@ Requires Tensorflow and Keras (the experiments were run on Tensorflow version 1.
 ----
 #### Sample result of Hierarchical DAgger on Maze Navigation ####
 
+Example runs on several instances of maze domain
+
+<img src="hierarchical_imitation_learning_Maze_Domain/maze.gif" width = "240" height = "240">
+
 ----
 #### Sample result of Hybrid Imitation - Reinforcement Learning on Montezuma's Revenge first room ####
 
