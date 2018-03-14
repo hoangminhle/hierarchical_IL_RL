@@ -8,7 +8,7 @@ Requires Tensorflow and Keras (the experiments were run on Tensorflow version 1.
 ----
 #### Sample result of Hierarchical DAgger on Maze Navigation ####
 
-Example runs on several instances of maze domain. Here both the meta-controller and low-level controllers are learned with imitation learning.
+We have multiple random instances of the environment. The agent (white dot) is supposed to navigate to the destination in the yellow block,  while avoiding all the obstacles (red). Here both the meta-controller and low-level controllers are learned with imitation learning.
 
 <img src="hierarchical_imitation_learning_Maze_Domain/maze.gif" width = "240" height = "240">
 
